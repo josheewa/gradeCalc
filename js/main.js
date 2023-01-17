@@ -73,7 +73,7 @@ function displayScores() {
                 alltasks[i][0] = +event.target.value
             }
             calculateFinal()
-            updateGrades()
+            document.getElementById('grade').innerText = letterGrade + ' ' + percent
         })
 
         let slash = document.createElement('span')
@@ -89,7 +89,7 @@ function displayScores() {
                 alltasks[i][1] = +event.target.value
             }
             calculateFinal()
-            updateGrades()
+            document.getElementById('grade').innerText = letterGrade + ' ' + percent
         })
 
         nodes[2].appendChild(numerator)

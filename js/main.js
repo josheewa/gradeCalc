@@ -53,6 +53,7 @@ function displayScores() {
     document.getElementById('quarter').innerText = markingPeriod
     document.getElementById('className').innerText = className
     document.getElementById('entry').style.display = 'none'
+    document.getElementById('classInfo').style.display = 'flex'
     document.getElementById('container').style.display = 'grid';
 
     for (let i = 0; i < num; i++) {
@@ -126,4 +127,12 @@ function calculateFinal() {
         letterGrade = 'D'
     else
         letterGrade = 'E'
+}
+
+function refresh() {
+    document.getElementById('entry').style.display = 'block'
+    document.getElementById('classInfo').style.display = 'none'
+    document.getElementById('container').style.display = 'none';
+    document.getElementById('field').value = ''
+    document.getElementById('container').innerHTML = ''
 }

@@ -1,6 +1,5 @@
 var markingPeriod, className, letterGrade, percent
-var dates = [], names = [], categories = [], scores = []
-var pracprep = [], alltasks = []
+var dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
 var pracPoints, pracTotal, allPoints, allTotal
 var num
 // parse()
@@ -18,7 +17,11 @@ function parse() {
     let data = text.substring(text.search("\nAssignments\n") + 15, text.search("Totals")).split("\n")
     
     num = (data.length - 1) / 5
-
+    console.log(num)
+    if (num < 1) {
+        invalidInput()
+        return
+    }
     for (let i = 0; i < data.length-1; i += 5) {
 
         names.push(data[i + 1])
@@ -135,4 +138,11 @@ function refresh() {
     document.getElementById('container').style.display = 'none';
     document.getElementById('field').value = ''
     document.getElementById('container').innerHTML = ''
+    dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
+}
+
+function invalidInput() {
+    let container = document.getElementById('alertContainer')
+    container.innerHTML = "<div class=\"alert\"><span onclick=\"this.parentElement.style.display='none';\" class=\"closebtn\">&times;</span>Invalid input; Please Try Again.</div>"
+
 }

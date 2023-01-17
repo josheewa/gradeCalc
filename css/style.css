@@ -8,9 +8,12 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .alert {
     padding: 20px;
-    /* display: none; */
     background-color: #f44336;
     color: white;
     margin-bottom: 15px;
@@ -58,6 +61,10 @@ input::-webkit-inner-spin-button {
     margin: 30px;
     background: whitesmoke;
     padding: 10px;
+}
+
+#classInfo i:hover {
+    cursor: pointer;
 }
 
 #container {

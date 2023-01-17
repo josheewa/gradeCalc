@@ -1,6 +1,5 @@
 var markingPeriod, className, letterGrade, percent
 var dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
-var pracPoints, pracTotal, allPoints, allTotal
 var num
 // parse()
 
@@ -47,7 +46,6 @@ function parse() {
 
 
     displayScores()
-    calculateFinal()
 }
 
 function displayScores() {
@@ -64,6 +62,7 @@ function displayScores() {
         let nodes = Array.from({ length: 3 }, () => (document.createElement("div")))
 
         nodes[0].innerText = names[i]
+
         let letter = categories[i]
         nodes[1].innerText = letter
 
@@ -105,10 +104,9 @@ function displayScores() {
 }
 
 function calculateFinal() {
-    pracPoints = pracTotal = allPoints = allTotal = 0
+    let pracPoints = pracTotal = allPoints = allTotal = 0
 
     for (let i = 0; i < pracprep.length; i++) {
-
         pracPoints += pracprep[i][0]
         pracTotal += pracprep[i][1]
     }
@@ -144,5 +142,33 @@ function refresh() {
 function invalidInput() {
     let container = document.getElementById('alertContainer')
     container.innerHTML = "<div class=\"alert\"><span onclick=\"this.parentElement.style.display='none';\" class=\"closebtn\">&times;</span>Invalid input; Please Try Again.</div>"
+}
 
+function addAssignment() {
+    let category
+    while (category != 'P' && category != 'A') {
+        category = prompt("Enter weight category ('P' or 'A'):", "A")
+    }
+
+    let val = -1
+
+    while (val < 0) {
+        val = prompt("Enter grade point value of assignment (positive number): ", '10')
+    }
+
+    document.getElementById('container').innerHTML = ''
+    names.unshift('Custom Assignment')
+    categories.unshift(category)
+    scores.unshift([+val, +val])
+    num++
+
+
+    if (category == 'P') {
+        pracprep.unshift([+val, +val])
+    } else if (category == 'A') {
+        alltasks.unshift([+val, +val])
+    }
+    calculateFinal()
+    displayScores()
+    document.getElementById('grade').innerText = letterGrade + ' ' + percent
 }

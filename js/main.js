@@ -2,6 +2,11 @@ var markingPeriod, className, letterGrade, percent
 var dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
 var num
 // parse()
+document.getElementById('field').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        parse()
+    }
+})
 
 function parse() {
 

@@ -1,6 +1,10 @@
 * {
     font-family: 'Ubuntu', sans-serif;
+}
 
+h1 {
+    text-align: center;
+    margin: 30px;
 }
 
 input::-webkit-outer-spin-button,
@@ -8,8 +12,34 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 
+#directions {
+    height: --webkit-fill-available;
+    align-items: center;
+
+    padding: 20px;
+    background: whitesmoke;
+    letter-spacing: 1px;
+    line-height: 2
+}
+
+#add {
+    background: yellowgreen;
+    padding: 7px;
+    border-radius: 30px;
+}
+
+#refresh {
+    background: powderblue;
+    padding: 7px;
+    border-radius: 30px;
+}
+
 button:hover {
     cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
 
 .alert {
@@ -34,17 +64,15 @@ button:hover {
     color: black;
 }
 
-#entry {
-    display: flex;
-    flex-wrap: wrap;
-    height: 500px;
-    margin: 20px;
+.entry {
+    margin: 30px;
 }
 
 #field {
     width: -webkit-fill-available;
-    height: -webkit-fill-available;
-
+    height: 100px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 #submit {
@@ -53,6 +81,8 @@ button:hover {
     background: limegreen;
     font-size: 24px;
     font-variant: all-petite-caps;
+    border: none;
+    border-radius: 15px;
     letter-spacing: .2rem;
 }
 
@@ -60,7 +90,9 @@ button:hover {
     font-size: 30px;
     margin: 30px;
     background: whitesmoke;
-    padding: 10px;
+    padding: 15px;
+    align-items: center;
+    border-radius: 5px;
 }
 
 #classInfo i:hover {
@@ -70,6 +102,7 @@ button:hover {
 #container {
     display: none;
     border: 2px solid black;
+    border-radius: 5px;
     padding: 10px;
     grid-template-columns: 4fr repeat(2, 1fr);
     margin: 30px;

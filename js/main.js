@@ -53,7 +53,14 @@ function displayScores() {
     document.getElementById('grade').innerText = letterGrade + ' ' + percent
     document.getElementById('quarter').innerText = markingPeriod
     document.getElementById('className').innerText = className
-    document.getElementById('entry').style.display = 'none'
+
+
+    let arr = document.getElementsByClassName('entry')
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].classList.add('hidden')
+    }
+
+    Array.from({ length: 3 }, () => (document.createElement("div")))
     document.getElementById('classInfo').style.display = 'flex'
     document.getElementById('container').style.display = 'grid';
 
@@ -131,7 +138,12 @@ function calculateFinal() {
 }
 
 function refresh() {
-    document.getElementById('entry').style.display = 'block'
+    
+    let arr = document.getElementsByClassName('entry')
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].classList.remove('hidden')
+    }
+
     document.getElementById('classInfo').style.display = 'none'
     document.getElementById('container').style.display = 'none';
     document.getElementById('field').value = ''

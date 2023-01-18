@@ -55,7 +55,6 @@ function parse() {
         scores.push(arr)
     }
 
-
     displayScores()
 }
 
@@ -71,7 +70,6 @@ function displayScores() {
         arr[i].classList.add('hidden')
     }
 
-    Array.from({ length: 3 }, () => (document.createElement("div")))
     document.getElementById('classInfo').style.display = 'flex'
     document.getElementById('container').style.display = 'grid';
 
@@ -89,9 +87,9 @@ function displayScores() {
         numerator.value = scores[i][0]
         numerator.addEventListener('input', (event) => {
             if (letter == 'P') {
-                pracprep[i][0] = +event.target.value
+                scores[i][0] = +event.target.value
             } else if (letter == 'A') {
-                alltasks[i][0] = +event.target.value
+                scores[i][0] = +event.target.value
             }
             calculateFinal()
             document.getElementById('grade').innerText = letterGrade + ' ' + percent
@@ -105,9 +103,9 @@ function displayScores() {
         denominator.value = scores[i][1]
         denominator.addEventListener('input', (event) => {
             if (letter == 'P') {
-                pracprep[i][1] = +event.target.value
+                scores[i][1] = +event.target.value
             } else if (letter == 'A') {
-                alltasks[i][1] = +event.target.value
+                scores[i][1] = +event.target.value
             }
             calculateFinal()
             document.getElementById('grade').innerText = letterGrade + ' ' + percent
@@ -124,15 +122,24 @@ function displayScores() {
 function calculateFinal() {
     let pracPoints = pracTotal = allPoints = allTotal = 0
 
-    for (let i = 0; i < pracprep.length; i++) {
-        pracPoints += pracprep[i][0]
-        pracTotal += pracprep[i][1]
+    for (let i = 0; i < num; i++) {
+        if (categories[i] == 'P') {
+            pracPoints += scores[i][0]
+            pracTotal += scores[i][1]
+        } else if (categories[i] == 'A') {
+            allPoints += scores[i][0]
+            allTotal += scores[i][1]
+        }
     }
+    // for (let i = 0; i < pracprep.length; i++) {
+    //     pracPoints += pracprep[i][0]
+    //     pracTotal += pracprep[i][1]
+    // }
 
-    for (let i = 0; i < alltasks.length; i++) {
-        allPoints += alltasks[i][0]
-        allTotal += alltasks[i][1]
-    }
+    // for (let i = 0; i < alltasks.length; i++) {
+    //     allPoints += alltasks[i][0]
+    //     allTotal += alltasks[i][1]
+    // }
 
     percent = (100 * ((pracPoints / pracTotal) * .1 + (allPoints / allTotal) * .9)).toFixed(2)
 

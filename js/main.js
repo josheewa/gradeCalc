@@ -1,29 +1,26 @@
 var markingPeriod, className, letterGrade, percent, num
-var dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
+var dates = [], names = [], categories = [], scores = []
 
 function setup() {
 
     let arr = document.getElementsByClassName('grades')
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++)
         arr[i].classList.add('hidden')
-        console.log(arr[i])
-    }
+    
     document.body.addEventListener('keyup', function (e) {
-        if (e.key === 'Escape') {
+        if (e.key === 'Escape')
             document.getElementById('alertContainer').innerHTML = ''
-        }
     })
     document.getElementById('field').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter')
             parse()
-        }
     })
 }
 
 function parse() {
 
     let text = document.getElementById('field').value
-    document.getElementById('field').value = ''
+    text.value = ''
     let header = text.substring(text.search("MP"), text.search("\nAssignments\n")).split("\n")
 
     markingPeriod = header[0]
@@ -47,17 +44,17 @@ function parse() {
         categories.push(category)
 
         let raw = data[i + 3].split(" out of ")
-        let arr
-        if (data[i + 3] == 'Not Graded') {
-            arr = [0, 0]
-        } else {
-            arr = [+raw[0], +raw[1]]
-        }
+
+        if (data[i + 3] == 'Not Graded') 
+            var arr = [0, 0]
+        else 
+            var arr = [+raw[0], +raw[1]]
         
-        if (category == 'P')
-            pracprep.push(arr)
-        else if (category == 'A')
-            alltasks.push(arr)
+        // if (category == 'P')
+        //     pracprep.push(arr)
+
+        // else if (category == 'A')
+        //     alltasks.push(arr)
         
         scores.push(arr)
     }
@@ -142,15 +139,6 @@ function calculateFinal() {
             allTotal += scores[i][1]
         }
     }
-    // for (let i = 0; i < pracprep.length; i++) {
-    //     pracPoints += pracprep[i][0]
-    //     pracTotal += pracprep[i][1]
-    // }
-
-    // for (let i = 0; i < alltasks.length; i++) {
-    //     allPoints += alltasks[i][0]
-    //     allTotal += alltasks[i][1]
-    // }
 
     percent = (100 * ((pracPoints / pracTotal) * .1 + (allPoints / allTotal) * .9)).toFixed(2)
 
@@ -169,18 +157,15 @@ function calculateFinal() {
 function refresh() {
     
     let arr = document.getElementsByClassName('entry')
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++)
         arr[i].classList.remove('hidden')
-    }
+    
     arr = document.getElementsByClassName('grades')
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++)
         arr[i].classList.add('hidden')
-    }
-    // document.getElementById('classInfo').style.display = 'none'
-    // document.getElementById('container').style.display = 'none';
+    
     document.getElementById('container').innerHTML = ''
-    // document.getElementById('alertContainer').style.display = 'none';
-    dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
+    dates = [], names = [], categories = [], scores = []
 }
 
 function invalidInput() {
@@ -189,15 +174,13 @@ function invalidInput() {
 
 function addAssignment() {
     let category
-    while (category != 'P' && category != 'A') {
+    while (category != 'P' && category != 'A')
         category = prompt("Enter weight category ('P' or 'A'):", "A")
-    }
 
     let val = -1
 
-    while (val < 0) {
+    while (val < 0)
         val = prompt("Enter grade point value of assignment (positive number): ", '10')
-    }
 
     document.getElementById('container').innerHTML = ''
     names.unshift('Custom Assignment')
@@ -205,12 +188,11 @@ function addAssignment() {
     scores.unshift([+val, +val])
     num++
 
-
-    if (category == 'P') {
+    if (category == 'P')
         pracprep.unshift([+val, +val])
-    } else if (category == 'A') {
+    else if (category == 'A')
         alltasks.unshift([+val, +val])
-    }
+
     calculateFinal()
     displayScores()
     document.getElementById('grade').innerText = letterGrade + ' ' + percent

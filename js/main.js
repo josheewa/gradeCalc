@@ -6,6 +6,7 @@ function setup() {
     let arr = document.getElementsByClassName('grades')
     for (let i = 0; i < arr.length; i++) {
         arr[i].classList.add('hidden')
+        console.log(arr[i])
     }
     document.body.addEventListener('keyup', function (e) {
         if (e.key === 'Escape') {
@@ -80,8 +81,8 @@ function displayScores() {
     for (let i = 0; i < arr.length; i++) {
         arr[i].classList.remove('hidden')
     }
-    // document.getElementById('classInfo').style.display = 'flex'
-    // document.getElementById('container').style.display = 'grid';
+    document.getElementById('classInfo').style.display = 'flex'
+    document.getElementById('container').style.display = 'grid';
 
     for (let i = 0; i < num; i++) {
 

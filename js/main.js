@@ -2,6 +2,11 @@ var markingPeriod, className, letterGrade, percent, num
 var dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
 
 function setup() {
+
+    let arr = document.getElementsByClassName('grades')
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].classList.add('hidden')
+    }
     document.body.addEventListener('keyup', function (e) {
         if (e.key === 'Escape') {
             document.getElementById('alertContainer').innerHTML = ''
@@ -17,6 +22,7 @@ function setup() {
 function parse() {
 
     let text = document.getElementById('field').value
+    document.getElementById('field').value = ''
     let header = text.substring(text.search("MP"), text.search("\nAssignments\n")).split("\n")
 
     markingPeriod = header[0]
@@ -70,8 +76,12 @@ function displayScores() {
         arr[i].classList.add('hidden')
     }
 
-    document.getElementById('classInfo').style.display = 'flex'
-    document.getElementById('container').style.display = 'grid';
+    arr = document.getElementsByClassName('grades')
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].classList.remove('hidden')
+    }
+    // document.getElementById('classInfo').style.display = 'flex'
+    // document.getElementById('container').style.display = 'grid';
 
     for (let i = 0; i < num; i++) {
 
@@ -161,12 +171,14 @@ function refresh() {
     for (let i = 0; i < arr.length; i++) {
         arr[i].classList.remove('hidden')
     }
-
-    document.getElementById('classInfo').style.display = 'none'
-    document.getElementById('container').style.display = 'none';
-    document.getElementById('field').value = ''
+    arr = document.getElementsByClassName('grades')
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].classList.add('hidden')
+    }
+    // document.getElementById('classInfo').style.display = 'none'
+    // document.getElementById('container').style.display = 'none';
     document.getElementById('container').innerHTML = ''
-    document.getElementById('alertContainer').style.display = 'none';
+    // document.getElementById('alertContainer').style.display = 'none';
     dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
 }
 

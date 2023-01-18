@@ -12,7 +12,7 @@
 </head>
 <body onload="setup()">
     <h1>Grade Calculator</h1>
-    <div id="directions" class="entry">
+    <!-- <div id="directions" class="entry"> -->
         <div id="entryDirections" class="entry">
             <ol type="1">
                 <li>Make sure you are on a computer, not a cellphone <i class="fa-solid fa-computer"></i></li>
@@ -24,17 +24,17 @@
                 <li>Come back here, and paste the raw text into the text box, and click Submit <i class="fa-solid fa-check"></i></li>
             </ol>
         </div>
-    </div>
+    <!-- </div> -->
     <div class="entry">
-        <div id="alertContainer"></div>
+        <div id="alertContainer" class="entry"></div>
         <textarea type="text" id="field" autofocus></textarea>
         <button onclick="parse()" id="submit">Submit <i class="fa-solid fa-check"></i></button>
     </div>
-    <div id="classInfo">
+    <div id="classInfo" class="grades">
         <div id="quarter"></div><div id="className"></div><div id="grade"></div><i id="refresh" onclick='refresh()' class="fa-solid fa-rotate-right"></i><i id="add" onclick="addAssignment()" class="fa-solid fa-plus"></i>
     </div>
     
-    <div id="container" class="container"></div>
+    <div id="container" class="container grades"></div>
     </body>
     <script src="js/main.js" type="text/javascript"></script>
 </html>

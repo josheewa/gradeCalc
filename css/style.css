@@ -12,7 +12,7 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 
-#directions {
+#entryDirections {
     height: --webkit-fill-available;
     align-items: center;
 
@@ -100,7 +100,7 @@ button:hover {
 }
 
 #container {
-    display: none;
+    display: grid;
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
@@ -109,14 +109,14 @@ button:hover {
     row-gap: 10px;
 }
 
-input {
+#container input {
     width: 30px;
     border: none;
     border-bottom: 1px solid black;
 }
 
 #classInfo {
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }

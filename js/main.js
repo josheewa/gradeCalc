@@ -68,16 +68,14 @@ function displayScores() {
     document.getElementById('quarter').innerText = markingPeriod
     document.getElementById('className').innerText = className
 
-
     let arr = document.getElementsByClassName('entry')
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++)
         arr[i].classList.add('hidden')
-    }
 
     arr = document.getElementsByClassName('grades')
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++)
         arr[i].classList.remove('hidden')
-    }
+
     document.getElementById('classInfo').style.display = 'flex'
     document.getElementById('container').style.display = 'grid';
 
@@ -131,6 +129,7 @@ function calculateFinal() {
     let pracPoints = pracTotal = allPoints = allTotal = 0
 
     for (let i = 0; i < num; i++) {
+
         if (categories[i] == 'P') {
             pracPoints += scores[i][0]
             pracTotal += scores[i][1]
@@ -173,25 +172,18 @@ function invalidInput() {
 }
 
 function addAssignment() {
-    let category
+
     while (category != 'P' && category != 'A')
-        category = prompt("Enter weight category ('P' or 'A'):", "A")
+        var category = prompt("Enter weight category ('P' or 'A'):", "A")
 
-    let val = -1
-
-    while (val < 0)
-        val = prompt("Enter grade point value of assignment (positive number): ", '10')
+    while (!(val > 0))
+        var val = prompt("Enter grade point value of assignment (positive number): ", '10')
 
     document.getElementById('container').innerHTML = ''
     names.unshift('Custom Assignment')
     categories.unshift(category)
     scores.unshift([+val, +val])
     num++
-
-    if (category == 'P')
-        pracprep.unshift([+val, +val])
-    else if (category == 'A')
-        alltasks.unshift([+val, +val])
 
     calculateFinal()
     displayScores()

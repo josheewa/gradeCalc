@@ -10,14 +10,14 @@
     <script src="https://kit.fontawesome.com/67173e40d1.js" crossorigin="anonymous"></script>
     <title>GradeCalc</title>
 </head>
-<body>
+<body onload="setup()">
     <h1>Grade Calculator</h1>
     <div id="directions" class="entry">
         <div id="entryDirections" class="entry">
             <ol type="1">
                 <li>Make sure you are on a computer, not a cellphone <i class="fa-solid fa-computer"></i></li>
                 <li>Open <a href="https://md-mcps-psv.edupoint.com/PXP2_Login_Student.aspx?regenerateSessionId=True">Synergy</a> <i class="fa-solid fa-lightbulb"></i></li>
-                <li>Navigate to <a href="https://md-mcps-psv.edupoint.com/PXP2_Gradebook.aspx">Grade Book</a><i class="fa-solid fa-notebook"></i></li>
+                <li>Navigate to <a href="https://md-mcps-psv.edupoint.com/PXP2_Gradebook.aspx">Grade Book</a> <i class="fa-solid fa-book"></i></li>
                 <li>Click the class you wish to calculate <i class="fa-solid fa-calculator"></i></li>
                 <li>Select all the text on the screen [Ctrl+A (Windows), Cmd+A (macOS)] <i class="fa-solid fa-file"></i></li>
                 <li>Copy that to clipboard [Ctrl+C (Windows), Cmd+C (macOS)] <i class="fa-solid fa-clipboard"></i></li>
@@ -28,7 +28,7 @@
     <div class="entry">
         <div id="alertContainer"></div>
         <textarea type="text" id="field" autofocus></textarea>
-        <button onclick="parse()" id="submit">Submit</button>
+        <button onclick="parse()" id="submit">Submit <i class="fa-solid fa-check"></i></button>
     </div>
     <div id="classInfo">
         <div id="quarter"></div><div id="className"></div><div id="grade"></div><i id="refresh" onclick='refresh()' class="fa-solid fa-rotate-right"></i><i id="add" onclick="addAssignment()" class="fa-solid fa-plus"></i>

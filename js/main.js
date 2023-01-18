@@ -1,12 +1,18 @@
-var markingPeriod, className, letterGrade, percent
+var markingPeriod, className, letterGrade, percent, num
 var dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
-var num
-// parse()
-document.getElementById('field').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        parse()
-    }
-})
+
+function setup() {
+    document.body.addEventListener('keyup', function (e) {
+        if (e.key === 'Escape') {
+            document.getElementById('alertContainer').innerHTML = ''
+        }
+    })
+    document.getElementById('field').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            parse()
+        }
+    })
+}
 
 function parse() {
 
@@ -19,10 +25,10 @@ function parse() {
     percent = header[3]
 
     let data = text.substring(text.search("\nAssignments\n") + 15, text.search("Totals")).split("\n")
-    
+
     num = (data.length - 1) / 5
-    console.log(num)
-    if (num < 1) {
+
+    if (header.length < 4 || num < 1) {
         invalidInput()
         return
     }
@@ -153,12 +159,12 @@ function refresh() {
     document.getElementById('container').style.display = 'none';
     document.getElementById('field').value = ''
     document.getElementById('container').innerHTML = ''
+    document.getElementById('alertContainer').style.display = 'none';
     dates = [], names = [], categories = [], scores = [], pracprep = [], alltasks = []
 }
 
 function invalidInput() {
-    let container = document.getElementById('alertContainer')
-    container.innerHTML = "<div class=\"alert\"><span onclick=\"this.parentElement.style.display='none';\" class=\"closebtn\">&times;</span>Invalid input; Please Try Again.</div>"
+    document.getElementById('alertContainer').innerHTML = "<div class=\"alert\"><span onclick=\"this.parentElement.style.display='none';\" class=\"closebtn\">&times;</span>Invalid input; Please Try Again.</div>"
 }
 
 function addAssignment() {

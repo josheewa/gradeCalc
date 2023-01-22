@@ -54,9 +54,9 @@ function displayScores() {
     document.querySelector('.home').style.display = 'none';
     document.querySelector('.grades').style.display = 'block';
 
-    document.querySelector('grade').innerText = letterGrade + ' ' + percent;
-    document.querySelector('quarter').innerText = markingPeriod;
-    document.querySelector('className').innerText = className;
+    document.getElementById('grade').innerText = letterGrade + ' ' + percent;
+    document.getElementById('quarter').innerText = markingPeriod;
+    document.getElementById('className').innerText = className;
 
     for (let i = 0; i < num; i++) {
 

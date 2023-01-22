@@ -119,7 +119,7 @@ button:hover {
     transition: .5s;
 }
 
-.container {
+#container {
     display: grid;
     background-color: whitesmoke;
     border-radius: .5rem;
@@ -131,7 +131,7 @@ button:hover {
     row-gap: .75rem;
 }
 
-.container input {
+#container input {
     width: 2rem;
     border: none;
     border-bottom: 1px solid black;

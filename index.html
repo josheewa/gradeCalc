@@ -12,36 +12,24 @@
     <title>GradeCalc</title>
 </head>
 <body>
-    <div class="home">
-        <h1>Grade Calculator</h1>
-        <div id="homeDirections">
-            <ol>
-                <li>Make sure you are on a computer, not a cellphone <i class="fa-solid fa-computer"></i></li>
-                <li>Open <a href="https://md-mcps-psv.edupoint.com/PXP2_Login_Student.aspx?regenerateSessionId=True">Synergy</a> <i class="fa-solid fa-lightbulb"></i></li>
-                <li>Navigate to <a href="https://md-mcps-psv.edupoint.com/PXP2_Gradebook.aspx">Grade Book</a> <i class="fa-solid fa-book"></i></li>
-                <li>Click the class you wish to calculate <i class="fa-solid fa-calculator"></i></li>
-                <li>Select all the text on the screen [Ctrl+A (Windows), Cmd+A (macOS)] <i class="fa-solid fa-file"></i></li>
-                <li>Copy that to clipboard [Ctrl+C (Windows), Cmd+C (macOS)] <i class="fa-solid fa-clipboard"></i></li>
-                <li>Come back here, and paste the raw text into the text box, and press Enter or click Submit <i class="fa-solid fa-check"></i></li>
-            </ol>
-        </div>
-        <div class="entry">
-            <div id="alertContainer"></div>
-            <textarea type="text" id="field" autofocus></textarea>
-            <button onclick="parse()" id="submit">Submit <i class="fa-solid fa-check"></i></button>
-        </div>
+    <h1>Grade Calculator</h1>
+    <div id="homeDirections">
+        <ol>
+            <li>Make sure you are on a computer, not a cellphone <i class="fa-solid fa-computer"></i></li>
+            <li>Open <a href="https://md-mcps-psv.edupoint.com/PXP2_Login_Student.aspx?regenerateSessionId=True">Synergy</a> <i class="fa-solid fa-lightbulb"></i></li>
+            <li>Navigate to <a href="https://md-mcps-psv.edupoint.com/PXP2_Gradebook.aspx">Grade Book</a> <i class="fa-solid fa-book"></i></li>
+            <li>Click the class you wish to calculate <i class="fa-solid fa-calculator"></i></li>
+            <li>Select all the text on the screen [Ctrl+A (Windows), Cmd+A (macOS)] <i class="fa-solid fa-file"></i></li>
+            <li>Copy that to clipboard [Ctrl+C (Windows), Cmd+C (macOS)] <i class="fa-solid fa-clipboard"></i></li>
+            <li>Come back here, and paste the raw text into the text box, and press Enter or click Submit <i class="fa-solid fa-check"></i></li>
+        </ol>
+    </div>
+    <div class="entry">
+        <div id="alertContainer"></div>
+        <textarea type="text" id="field" autofocus></textarea>
+        <button onclick="parse()" id="submit">Submit <i class="fa-solid fa-check"></i></button>
     </div>
         
-    <div class="grades">
-        <div id="classInfo">
-            <div id="quarter"></div>
-            <div id="className"></div>
-            <div id="grade"></div>
-            <i id="refresh" onclick='refresh()' class="fa-solid fa-rotate-right"></i>
-            <i id="add" onclick="addAssignment()" class="fa-solid fa-plus"></i>
-        </div>
-        <div id="container"></div>
-    </div>
 </body>
 <script src="js/main.js" type="text/javascript"></script>
 </html>

@@ -1,0 +1,64 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+#classInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    background: lightgray;
+    padding: 1rem;
+    align-items: center;
+    overflow: hidden;
+}
+
+#add {
+    background: yellowgreen;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+#refresh {
+    background: powderblue;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+#classInfo i:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    transition: .5s;
+}
+
+#container {
+    display: grid;
+    background-color: whitesmoke;
+    border-radius: .5rem;
+    padding: 1rem;
+    grid-template-columns: 4fr repeat(2, 1fr);
+    position: relative;
+    top: 10vh;
+    margin: 2rem;
+    row-gap: .75rem;
+}
+
+#container input {
+    width: 2rem;
+    border: none;
+    border-bottom: 1px solid black;
+}

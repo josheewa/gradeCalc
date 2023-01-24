@@ -12,6 +12,10 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 #homeDirections {
     height: --webkit-fill-available;
     align-items: center;
@@ -51,8 +55,8 @@ button:hover {
     color: black;
 }
 
-.home {
-    margin: 2rem;
+div {
+    margin: 0 2rem;
 }
 
 .entry {

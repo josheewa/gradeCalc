@@ -13,10 +13,9 @@ function load() {
     let temp = sessionStorage.getItem('scores').split(',');
 
     for (let i = 0; i < temp.length; i+=2) {
-        let arr = [temp[i], [temp[i + 1]]]
+        let arr = [+temp[i], +temp[i + 1]]
         scores.push(arr)
     }
-    
     displayScores();
 }
 
@@ -35,6 +34,8 @@ function displayScores() {
         let letter = categories[i];
         nodes[1].innerText = letter;
 
+        let grade = document.getElementById('grade');
+
         let numerator = document.createElement('input');
         numerator.type = 'number';
         numerator.value = scores[i][0];
@@ -44,13 +45,15 @@ function displayScores() {
             } else if (letter == 'A') {
                 scores[i][0] = +event.target.value;
             }
+            console.log(scores[i][0]);
             calculateFinal();
-            document.getElementById('grade').innerText = letterGrade + ' ' + percent;
+            grade.innerText = letterGrade + ' ' + percent;
+            grade.className = letterGrade;
         })
-
+        
         let slash = document.createElement('span');
         slash.innerText = " / ";
-
+        
         let denominator = document.createElement('input');
         denominator.type = 'number';
         denominator.value = scores[i][1];
@@ -61,9 +64,10 @@ function displayScores() {
                 scores[i][1] = +event.target.value;
             }
             calculateFinal();
-            document.getElementById('grade').innerText = letterGrade + ' ' + percent;
+            grade.innerText = letterGrade + ' ' + percent;
+            grade.className = letterGrade;
         })
-
+        grade.className = letterGrade;
         nodes[2].appendChild(numerator);
         nodes[2].appendChild(slash);
         nodes[2].appendChild(denominator);

@@ -21,20 +21,30 @@ input[type="number"] {
     left: 0;
     z-index: 1;
     width: 100vw;
-    background: lightgray;
+    background: slategray;
     padding: 1rem;
     align-items: center;
     overflow: hidden;
 }
 
+#classInfo div {
+    padding: .2em .5em;
+    border-radius: 10px;
+}
+#quarter {
+    background-color: white;
+}
+#className {
+    background-color: white;
+}
 #add {
-    background: yellowgreen;
+    background: greenyellow;
     padding: .5rem;
     border-radius: 1rem;
 }
 
 #refresh {
-    background: powderblue;
+    background: lightskyblue;
     padding: .5rem;
     border-radius: 1rem;
 }
@@ -61,4 +71,24 @@ input[type="number"] {
     width: 2rem;
     border: none;
     border-bottom: 1px solid black;
+}
+
+#grade {
+    font-weight: bold;
+}
+
+.A {
+    background-color: greenyellow;
+}
+.B {
+    background-color: lightskyblue;
+}
+.C {
+    background-color: yellow;
+}
+.D {
+    background-color: orange;
+}
+.E {
+    background-color: red;
 }

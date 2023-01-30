@@ -17,7 +17,6 @@ function parse() {
     let header = text.substring(text.search("MP"), text.search("\nAssignments\n")).split("\n");
     let data = text.substring(text.search("\nAssignments\n") + 15, text.search("Totals")).split("\n");
     
-    markingPeriod = header[0];
     className = header[1];
     letterGrade = header[2];
     percent = header[3];
@@ -45,7 +44,6 @@ function parse() {
         scores.push(arr);
     }
     
-    sessionStorage.setItem('markPd', markingPeriod);
     sessionStorage.setItem('className', className);
     sessionStorage.setItem('letterGrd', letterGrade);
     sessionStorage.setItem('percent', percent);

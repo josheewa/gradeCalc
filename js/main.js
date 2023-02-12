@@ -1,14 +1,10 @@
+'use strict';
+
 var markingPeriod, className, letterGrade, percent, num;
 var names = [], categories = [], scores = [];
 
-document.body.addEventListener('keyup', function (e) {
-    if (e.key === 'Escape')
-        document.getElementById('alertContainer').innerHTML = '';
-});
-document.getElementById('field').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter')
-        parse();
-});
+document.body.addEventListener('keyup', function (e) {if (e.key === 'Escape'){document.getElementById('alertContainer').innerHTML = '';}});
+document.getElementById('field').addEventListener('keypress', function (e) {if (e.key === 'Enter'){parse();}});
 
 function parse() {
 
@@ -18,9 +14,22 @@ function parse() {
     let data = text.substring(text.search("\nAssignments\n") + 15, text.search("Totals")).split("\n");
     
     className = header[1];
-    letterGrade = header[2];
+    // letterGrade = header[2];
     percent = header[3];
+
+    let grade = +percent.substring(0, percent.length-1)
     num = (data.length - 1) / 5;
+
+    if (grade >= 89.5)
+        letterGrade = 'A';
+    else if (grade >= 79.5)
+        letterGrade = 'B';
+    else if (grade >= 69.5)
+        letterGrade = 'C';
+    else if (grade >= 59.5)
+        letterGrade = 'D';
+    else
+        letterGrade = 'E';
 
     if (header.length < 4 || num < 1) {
         invalidInput();

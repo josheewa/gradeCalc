@@ -43,11 +43,10 @@ function displayScores() {
         numerator.type = 'number';
         numerator.value = scores[i][0];
         numerator.addEventListener('input', (event) => {
-            if (letter === 'P') {
-                scores[i][0] = +event.target.value;
-            } else if (letter === 'A') {
-                scores[i][0] = +event.target.value;
-            }
+
+            if (letter === 'P') { scores[i][0] = +event.target.value; }
+            else if (letter === 'A') { scores[i][0] = +event.target.value; }
+            
             calculateFinal();
             updateGrades();
         })
@@ -59,18 +58,15 @@ function displayScores() {
         denominator.type = 'number';
         denominator.value = scores[i][1];
         denominator.addEventListener('input', (event) => {
-            if (letter === 'P') {
-                scores[i][1] = +event.target.value;
-            } else if (letter === 'A') {
-                scores[i][1] = +event.target.value;
-            }
+
+            if (letter === 'P') { scores[i][1] = +event.target.value; }
+            else if (letter === 'A') { scores[i][1] = +event.target.value; }
+            
             calculateFinal();
             updateGrades();
         })
-
-        nodes[2].appendChild(numerator);
-        nodes[2].appendChild(slash);
-        nodes[2].appendChild(denominator);
+        let arr = [numerator, slash, denominator]
+        arr.map(x => x = nodes[2].appendChild(x))
         nodes[2].className = 'grade-edit'
 
         nodes.map(x => x = document.getElementById("container").appendChild(x));
@@ -96,16 +92,12 @@ function calculateFinal() {
     // calculates the final percent grade, and decides which letter grade
     percent = (100 * ((pracPoints / pracTotal) * .1 + (allPoints / allTotal) * .9)).toFixed(2);
 
-    if (percent >= 89.5)
-        letterGrade = 'A';
-    else if (percent >= 79.5)
-        letterGrade = 'B';
-    else if (percent >= 69.5)
-        letterGrade = 'C';
-    else if (percent >= 59.5)
-        letterGrade = 'D';
-    else
-        letterGrade = 'E';
+    if (percent >= 89.5) { letterGrade = 'A'; }
+    else if (percent >= 79.5) { letterGrade = 'B'; }
+    else if (percent >= 69.5) { letterGrade = 'C'; }
+    else if (percent >= 59.5) { letterGrade = 'D'; }
+    else { letterGrade = 'E'; }
+    
     percent += '%';
 }
 
